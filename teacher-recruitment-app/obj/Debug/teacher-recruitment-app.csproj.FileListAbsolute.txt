@@ -85,3 +85,5 @@ C:\Users\Decor\Desktop\teacher-recruitment-app\teacher-recruitment-app\bin\WebGr
 C:\Users\Decor\Desktop\teacher-recruitment-app\teacher-recruitment-app\bin\Antlr3.Runtime.dll
 C:\Users\Decor\Desktop\teacher-recruitment-app\teacher-recruitment-app\bin\System.Web.Razor.dll
 C:\Users\Decor\Desktop\teacher-recruitment-app\teacher-recruitment-app\bin\System.Web.Razor.xml
+C:\Users\Decor\Desktop\teacher-recruitment-app\teacher-recruitment-app\bin\Swashbuckle.Core.dll
+C:\Users\Decor\Desktop\teacher-recruitment-app\teacher-recruitment-app\bin\WebActivatorEx.dll
