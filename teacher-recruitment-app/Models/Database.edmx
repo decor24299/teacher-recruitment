@@ -1,0 +1,1261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Models.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Version" Type="bigint" />
+          <Property Name="InsId" Type="int" Nullable="false" />
+          <Property Name="InsDateTime" Type="datetime" Nullable="false" />
+          <Property Name="UpdId" Type="int" />
+          <Property Name="UpdDateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="District">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="CityId" Type="int" />
+          <Property Name="Version" Type="bigint" />
+          <Property Name="InsId" Type="int" Nullable="false" />
+          <Property Name="InsDateTime" Type="datetime" Nullable="false" />
+          <Property Name="UpdId" Type="int" />
+          <Property Name="UpdDateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="JobPost">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SchoolId" Type="int" />
+          <Property Name="LocationId" Type="int" />
+          <Property Name="Title" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Description" Type="ntext" Nullable="false" />
+          <Property Name="StartDate" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="EndDate" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Version" Type="bigint" />
+          <Property Name="InsId" Type="int" Nullable="false" />
+          <Property Name="InsDateTime" Type="datetime" Nullable="false" />
+          <Property Name="UpdId" Type="int" />
+          <Property Name="UpdDateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="JobPostActivity">
+          <Key>
+            <PropertyRef Name="TeacherId" />
+            <PropertyRef Name="JobPostId" />
+          </Key>
+          <Property Name="TeacherId" Type="int" Nullable="false" />
+          <Property Name="JobPostId" Type="int" Nullable="false" />
+          <Property Name="RequesterId" Type="int" />
+          <Property Name="ActivityTime" Type="time" Precision="7" />
+          <Property Name="ConfirmFlg" Type="bit" />
+          <Property Name="Type" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="Version" Type="bigint" />
+          <Property Name="InsId" Type="int" Nullable="false" />
+          <Property Name="InsDateTime" Type="datetime" Nullable="false" />
+          <Property Name="UpdId" Type="int" />
+          <Property Name="UpdDateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="JobPostSkill">
+          <Key>
+            <PropertyRef Name="JobPostId" />
+            <PropertyRef Name="SkillId" />
+          </Key>
+          <Property Name="JobPostId" Type="int" Nullable="false" />
+          <Property Name="SkillId" Type="int" Nullable="false" />
+          <Property Name="Version" Type="bigint" />
+          <Property Name="InsId" Type="int" Nullable="false" />
+          <Property Name="InsDateTime" Type="datetime" Nullable="false" />
+          <Property Name="UpdId" Type="int" />
+          <Property Name="UpdDateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Latitude" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Longitude" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Version" Type="bigint" />
+          <Property Name="InsId" Type="int" Nullable="false" />
+          <Property Name="InsDateTime" Type="datetime" Nullable="false" />
+          <Property Name="UpdId" Type="int" />
+          <Property Name="UpdDateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Major">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Version" Type="bigint" />
+          <Property Name="InsId" Type="int" Nullable="false" />
+          <Property Name="InsDateTime" Type="datetime" Nullable="false" />
+          <Property Name="UpdId" Type="int" />
+          <Property Name="UpdDateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="MajorSkill">
+          <Key>
+            <PropertyRef Name="MajorId" />
+            <PropertyRef Name="SkillId" />
+          </Key>
+          <Property Name="MajorId" Type="int" Nullable="false" />
+          <Property Name="SkillId" Type="int" Nullable="false" />
+          <Property Name="Version" Type="bigint" />
+          <Property Name="InsId" Type="int" Nullable="false" />
+          <Property Name="InsDateTime" Type="datetime" Nullable="false" />
+          <Property Name="UpdId" Type="int" />
+          <Property Name="UpdDateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="School">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Image" Type="text" />
+          <Property Name="Version" Type="bigint" />
+          <Property Name="InsId" Type="int" Nullable="false" />
+          <Property Name="InsDateTime" Type="datetime" Nullable="false" />
+          <Property Name="UpdId" Type="int" />
+          <Property Name="UpdDateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="SchoolUser">
+          <Key>
+            <PropertyRef Name="UserAccountId" />
+          </Key>
+          <Property Name="UserAccountId" Type="int" Nullable="false" />
+          <Property Name="SchoolId" Type="int" />
+          <Property Name="Version" Type="bigint" />
+          <Property Name="InsId" Type="int" Nullable="false" />
+          <Property Name="InsDateTime" Type="datetime" Nullable="false" />
+          <Property Name="UpdId" Type="int" />
+          <Property Name="UpdDateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Skill">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Version" Type="bigint" />
+          <Property Name="InsId" Type="int" Nullable="false" />
+          <Property Name="InsDateTime" Type="datetime" Nullable="false" />
+          <Property Name="UpdId" Type="int" />
+          <Property Name="UpdDateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TeacherMajor">
+          <Key>
+            <PropertyRef Name="TeacherId" />
+            <PropertyRef Name="MajorId" />
+          </Key>
+          <Property Name="TeacherId" Type="int" Nullable="false" />
+          <Property Name="MajorId" Type="int" Nullable="false" />
+          <Property Name="Version" Type="bigint" />
+          <Property Name="InsId" Type="int" Nullable="false" />
+          <Property Name="InsDateTime" Type="datetime" Nullable="false" />
+          <Property Name="UpdId" Type="int" />
+          <Property Name="UpdDateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="UserAccount">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="RoleId" Type="int" />
+          <Property Name="Password" Type="text" Nullable="false" />
+          <Property Name="PasswordSalt" Type="text" />
+          <Property Name="PasswordHashAlgorithm" Type="text" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Version" Type="bigint" />
+          <Property Name="InsId" Type="int" Nullable="false" />
+          <Property Name="InsDateTime" Type="datetime" Nullable="false" />
+          <Property Name="UpdId" Type="int" />
+          <Property Name="UpdDateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Description" Type="ntext" />
+          <Property Name="Image" Type="text" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Version" Type="bigint" />
+          <Property Name="InsId" Type="int" Nullable="false" />
+          <Property Name="InsDateTime" Type="datetime" Nullable="false" />
+          <Property Name="UpdId" Type="int" />
+          <Property Name="UpdDateTime" Type="datetime" />
+        </EntityType>
+        <Association Name="FK__District__CityId__1AD3FDA4">
+          <End Role="City" Type="Self.City" Multiplicity="0..1" />
+          <End Role="District" Type="Self.District" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="District">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobPost__Locatio__31B762FC">
+          <End Role="Location" Type="Self.Location" Multiplicity="0..1" />
+          <End Role="JobPost" Type="Self.JobPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="JobPost">
+              <PropertyRef Name="LocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobPost__SchoolI__30C33EC3">
+          <End Role="School" Type="Self.School" Multiplicity="0..1" />
+          <End Role="JobPost" Type="Self.JobPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="School">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="JobPost">
+              <PropertyRef Name="SchoolId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobPostAc__JobPo__45BE5BA9">
+          <End Role="JobPost" Type="Self.JobPost" Multiplicity="1" />
+          <End Role="JobPostActivity" Type="Self.JobPostActivity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JobPost">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="JobPostActivity">
+              <PropertyRef Name="JobPostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobPostAc__Reque__46B27FE2">
+          <End Role="SchoolUser" Type="Self.SchoolUser" Multiplicity="0..1" />
+          <End Role="JobPostActivity" Type="Self.JobPostActivity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SchoolUser">
+              <PropertyRef Name="UserAccountId" />
+            </Principal>
+            <Dependent Role="JobPostActivity">
+              <PropertyRef Name="RequesterId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobPostAc__Teach__44CA3770">
+          <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="1" />
+          <End Role="JobPostActivity" Type="Self.JobPostActivity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="JobPostActivity">
+              <PropertyRef Name="TeacherId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobPostSk__JobPo__3587F3E0">
+          <End Role="JobPost" Type="Self.JobPost" Multiplicity="1" />
+          <End Role="JobPostSkill" Type="Self.JobPostSkill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JobPost">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="JobPostSkill">
+              <PropertyRef Name="JobPostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobPostSk__Skill__367C1819">
+          <End Role="Skill" Type="Self.Skill" Multiplicity="1" />
+          <End Role="JobPostSkill" Type="Self.JobPostSkill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Skill">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="JobPostSkill">
+              <PropertyRef Name="SkillId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MajorSkil__Major__2BFE89A6">
+          <End Role="Major" Type="Self.Major" Multiplicity="1" />
+          <End Role="MajorSkill" Type="Self.MajorSkill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Major">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MajorSkill">
+              <PropertyRef Name="MajorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MajorSkil__Skill__2CF2ADDF">
+          <End Role="Skill" Type="Self.Skill" Multiplicity="1" />
+          <End Role="MajorSkill" Type="Self.MajorSkill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Skill">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MajorSkill">
+              <PropertyRef Name="SkillId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SchoolUse__Schoo__40F9A68C">
+          <End Role="School" Type="Self.School" Multiplicity="0..1" />
+          <End Role="SchoolUser" Type="Self.SchoolUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="School">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SchoolUser">
+              <PropertyRef Name="SchoolId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SchoolUse__UserA__40058253">
+          <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="1" />
+          <End Role="SchoolUser" Type="Self.SchoolUser" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SchoolUser">
+              <PropertyRef Name="UserAccountId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TeacherMa__Major__282DF8C2">
+          <End Role="Major" Type="Self.Major" Multiplicity="1" />
+          <End Role="TeacherMajor" Type="Self.TeacherMajor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Major">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TeacherMajor">
+              <PropertyRef Name="MajorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TeacherMa__Teach__2739D489">
+          <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="1" />
+          <End Role="TeacherMajor" Type="Self.TeacherMajor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TeacherMajor">
+              <PropertyRef Name="TeacherId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserAccou__RoleI__3C34F16F">
+          <End Role="UserRole" Type="Self.UserRole" Multiplicity="0..1" />
+          <End Role="UserAccount" Type="Self.UserAccount" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRole">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserAccount">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserAccount__Id__3B40CD36">
+          <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="1" />
+          <End Role="UserAccount" Type="Self.UserAccount" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserAccount">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModelsStoreContainer">
+          <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="District" EntityType="Self.District" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JobPost" EntityType="Self.JobPost" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JobPostActivity" EntityType="Self.JobPostActivity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JobPostSkill" EntityType="Self.JobPostSkill" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Location" EntityType="Self.Location" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Major" EntityType="Self.Major" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MajorSkill" EntityType="Self.MajorSkill" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="School" EntityType="Self.School" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SchoolUser" EntityType="Self.SchoolUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Skill" EntityType="Self.Skill" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TeacherMajor" EntityType="Self.TeacherMajor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserAccount" EntityType="Self.UserAccount" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserProfile" EntityType="Self.UserProfile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__District__CityId__1AD3FDA4" Association="Self.FK__District__CityId__1AD3FDA4">
+            <End Role="City" EntitySet="City" />
+            <End Role="District" EntitySet="District" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobPost__Locatio__31B762FC" Association="Self.FK__JobPost__Locatio__31B762FC">
+            <End Role="Location" EntitySet="Location" />
+            <End Role="JobPost" EntitySet="JobPost" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobPost__SchoolI__30C33EC3" Association="Self.FK__JobPost__SchoolI__30C33EC3">
+            <End Role="School" EntitySet="School" />
+            <End Role="JobPost" EntitySet="JobPost" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobPostAc__JobPo__45BE5BA9" Association="Self.FK__JobPostAc__JobPo__45BE5BA9">
+            <End Role="JobPost" EntitySet="JobPost" />
+            <End Role="JobPostActivity" EntitySet="JobPostActivity" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobPostAc__Reque__46B27FE2" Association="Self.FK__JobPostAc__Reque__46B27FE2">
+            <End Role="SchoolUser" EntitySet="SchoolUser" />
+            <End Role="JobPostActivity" EntitySet="JobPostActivity" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobPostAc__Teach__44CA3770" Association="Self.FK__JobPostAc__Teach__44CA3770">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="JobPostActivity" EntitySet="JobPostActivity" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobPostSk__JobPo__3587F3E0" Association="Self.FK__JobPostSk__JobPo__3587F3E0">
+            <End Role="JobPost" EntitySet="JobPost" />
+            <End Role="JobPostSkill" EntitySet="JobPostSkill" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobPostSk__Skill__367C1819" Association="Self.FK__JobPostSk__Skill__367C1819">
+            <End Role="Skill" EntitySet="Skill" />
+            <End Role="JobPostSkill" EntitySet="JobPostSkill" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MajorSkil__Major__2BFE89A6" Association="Self.FK__MajorSkil__Major__2BFE89A6">
+            <End Role="Major" EntitySet="Major" />
+            <End Role="MajorSkill" EntitySet="MajorSkill" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MajorSkil__Skill__2CF2ADDF" Association="Self.FK__MajorSkil__Skill__2CF2ADDF">
+            <End Role="Skill" EntitySet="Skill" />
+            <End Role="MajorSkill" EntitySet="MajorSkill" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SchoolUse__Schoo__40F9A68C" Association="Self.FK__SchoolUse__Schoo__40F9A68C">
+            <End Role="School" EntitySet="School" />
+            <End Role="SchoolUser" EntitySet="SchoolUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SchoolUse__UserA__40058253" Association="Self.FK__SchoolUse__UserA__40058253">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="SchoolUser" EntitySet="SchoolUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TeacherMa__Major__282DF8C2" Association="Self.FK__TeacherMa__Major__282DF8C2">
+            <End Role="Major" EntitySet="Major" />
+            <End Role="TeacherMajor" EntitySet="TeacherMajor" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TeacherMa__Teach__2739D489" Association="Self.FK__TeacherMa__Teach__2739D489">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="TeacherMajor" EntitySet="TeacherMajor" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserAccou__RoleI__3C34F16F" Association="Self.FK__UserAccou__RoleI__3C34F16F">
+            <End Role="UserRole" EntitySet="UserRole" />
+            <End Role="UserAccount" EntitySet="UserAccount" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserAccount__Id__3B40CD36" Association="Self.FK__UserAccount__Id__3B40CD36">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="UserAccount" EntitySet="UserAccount" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Models" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Version" Type="Int64" />
+          <Property Name="InsId" Type="Int32" Nullable="false" />
+          <Property Name="InsDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdId" Type="Int32" />
+          <Property Name="UpdDateTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Districts" Relationship="Self.FK__District__CityId__1AD3FDA4" FromRole="City" ToRole="District" />
+        </EntityType>
+        <EntityType Name="District">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CityId" Type="Int32" />
+          <Property Name="Version" Type="Int64" />
+          <Property Name="InsId" Type="Int32" Nullable="false" />
+          <Property Name="InsDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdId" Type="Int32" />
+          <Property Name="UpdDateTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="City" Relationship="Self.FK__District__CityId__1AD3FDA4" FromRole="District" ToRole="City" />
+        </EntityType>
+        <EntityType Name="JobPost">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SchoolId" Type="Int32" />
+          <Property Name="LocationId" Type="Int32" />
+          <Property Name="Title" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StartDate" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EndDate" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Version" Type="Int64" />
+          <Property Name="InsId" Type="Int32" Nullable="false" />
+          <Property Name="InsDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdId" Type="Int32" />
+          <Property Name="UpdDateTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Location" Relationship="Self.FK__JobPost__Locatio__31B762FC" FromRole="JobPost" ToRole="Location" />
+          <NavigationProperty Name="School" Relationship="Self.FK__JobPost__SchoolI__30C33EC3" FromRole="JobPost" ToRole="School" />
+          <NavigationProperty Name="JobPostActivities" Relationship="Self.FK__JobPostAc__JobPo__45BE5BA9" FromRole="JobPost" ToRole="JobPostActivity" />
+          <NavigationProperty Name="JobPostSkills" Relationship="Self.FK__JobPostSk__JobPo__3587F3E0" FromRole="JobPost" ToRole="JobPostSkill" />
+        </EntityType>
+        <EntityType Name="JobPostActivity">
+          <Key>
+            <PropertyRef Name="TeacherId" />
+            <PropertyRef Name="JobPostId" />
+          </Key>
+          <Property Name="TeacherId" Type="Int32" Nullable="false" />
+          <Property Name="JobPostId" Type="Int32" Nullable="false" />
+          <Property Name="RequesterId" Type="Int32" />
+          <Property Name="ActivityTime" Type="Time" Precision="7" />
+          <Property Name="ConfirmFlg" Type="Boolean" />
+          <Property Name="Type" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Version" Type="Int64" />
+          <Property Name="InsId" Type="Int32" Nullable="false" />
+          <Property Name="InsDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdId" Type="Int32" />
+          <Property Name="UpdDateTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="JobPost" Relationship="Self.FK__JobPostAc__JobPo__45BE5BA9" FromRole="JobPostActivity" ToRole="JobPost" />
+          <NavigationProperty Name="SchoolUser" Relationship="Self.FK__JobPostAc__Reque__46B27FE2" FromRole="JobPostActivity" ToRole="SchoolUser" />
+          <NavigationProperty Name="UserProfile" Relationship="Self.FK__JobPostAc__Teach__44CA3770" FromRole="JobPostActivity" ToRole="UserProfile" />
+        </EntityType>
+        <EntityType Name="JobPostSkill">
+          <Key>
+            <PropertyRef Name="JobPostId" />
+            <PropertyRef Name="SkillId" />
+          </Key>
+          <Property Name="JobPostId" Type="Int32" Nullable="false" />
+          <Property Name="SkillId" Type="Int32" Nullable="false" />
+          <Property Name="Version" Type="Int64" />
+          <Property Name="InsId" Type="Int32" Nullable="false" />
+          <Property Name="InsDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdId" Type="Int32" />
+          <Property Name="UpdDateTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="JobPost" Relationship="Self.FK__JobPostSk__JobPo__3587F3E0" FromRole="JobPostSkill" ToRole="JobPost" />
+          <NavigationProperty Name="Skill" Relationship="Self.FK__JobPostSk__Skill__367C1819" FromRole="JobPostSkill" ToRole="Skill" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Latitude" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Longitude" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Version" Type="Int64" />
+          <Property Name="InsId" Type="Int32" Nullable="false" />
+          <Property Name="InsDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdId" Type="Int32" />
+          <Property Name="UpdDateTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="JobPosts" Relationship="Self.FK__JobPost__Locatio__31B762FC" FromRole="Location" ToRole="JobPost" />
+        </EntityType>
+        <EntityType Name="Major">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Version" Type="Int64" />
+          <Property Name="InsId" Type="Int32" Nullable="false" />
+          <Property Name="InsDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdId" Type="Int32" />
+          <Property Name="UpdDateTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="MajorSkills" Relationship="Self.FK__MajorSkil__Major__2BFE89A6" FromRole="Major" ToRole="MajorSkill" />
+          <NavigationProperty Name="TeacherMajors" Relationship="Self.FK__TeacherMa__Major__282DF8C2" FromRole="Major" ToRole="TeacherMajor" />
+        </EntityType>
+        <EntityType Name="MajorSkill">
+          <Key>
+            <PropertyRef Name="MajorId" />
+            <PropertyRef Name="SkillId" />
+          </Key>
+          <Property Name="MajorId" Type="Int32" Nullable="false" />
+          <Property Name="SkillId" Type="Int32" Nullable="false" />
+          <Property Name="Version" Type="Int64" />
+          <Property Name="InsId" Type="Int32" Nullable="false" />
+          <Property Name="InsDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdId" Type="Int32" />
+          <Property Name="UpdDateTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Major" Relationship="Self.FK__MajorSkil__Major__2BFE89A6" FromRole="MajorSkill" ToRole="Major" />
+          <NavigationProperty Name="Skill" Relationship="Self.FK__MajorSkil__Skill__2CF2ADDF" FromRole="MajorSkill" ToRole="Skill" />
+        </EntityType>
+        <EntityType Name="School">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Version" Type="Int64" />
+          <Property Name="InsId" Type="Int32" Nullable="false" />
+          <Property Name="InsDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdId" Type="Int32" />
+          <Property Name="UpdDateTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="JobPosts" Relationship="Self.FK__JobPost__SchoolI__30C33EC3" FromRole="School" ToRole="JobPost" />
+          <NavigationProperty Name="SchoolUsers" Relationship="Self.FK__SchoolUse__Schoo__40F9A68C" FromRole="School" ToRole="SchoolUser" />
+        </EntityType>
+        <EntityType Name="SchoolUser">
+          <Key>
+            <PropertyRef Name="UserAccountId" />
+          </Key>
+          <Property Name="UserAccountId" Type="Int32" Nullable="false" />
+          <Property Name="SchoolId" Type="Int32" />
+          <Property Name="Version" Type="Int64" />
+          <Property Name="InsId" Type="Int32" Nullable="false" />
+          <Property Name="InsDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdId" Type="Int32" />
+          <Property Name="UpdDateTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="JobPostActivities" Relationship="Self.FK__JobPostAc__Reque__46B27FE2" FromRole="SchoolUser" ToRole="JobPostActivity" />
+          <NavigationProperty Name="School" Relationship="Self.FK__SchoolUse__Schoo__40F9A68C" FromRole="SchoolUser" ToRole="School" />
+          <NavigationProperty Name="UserProfile" Relationship="Self.FK__SchoolUse__UserA__40058253" FromRole="SchoolUser" ToRole="UserProfile" />
+        </EntityType>
+        <EntityType Name="Skill">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Version" Type="Int64" />
+          <Property Name="InsId" Type="Int32" Nullable="false" />
+          <Property Name="InsDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdId" Type="Int32" />
+          <Property Name="UpdDateTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="JobPostSkills" Relationship="Self.FK__JobPostSk__Skill__367C1819" FromRole="Skill" ToRole="JobPostSkill" />
+          <NavigationProperty Name="MajorSkills" Relationship="Self.FK__MajorSkil__Skill__2CF2ADDF" FromRole="Skill" ToRole="MajorSkill" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TeacherMajor">
+          <Key>
+            <PropertyRef Name="TeacherId" />
+            <PropertyRef Name="MajorId" />
+          </Key>
+          <Property Name="TeacherId" Type="Int32" Nullable="false" />
+          <Property Name="MajorId" Type="Int32" Nullable="false" />
+          <Property Name="Version" Type="Int64" />
+          <Property Name="InsId" Type="Int32" Nullable="false" />
+          <Property Name="InsDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdId" Type="Int32" />
+          <Property Name="UpdDateTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Major" Relationship="Self.FK__TeacherMa__Major__282DF8C2" FromRole="TeacherMajor" ToRole="Major" />
+          <NavigationProperty Name="UserProfile" Relationship="Self.FK__TeacherMa__Teach__2739D489" FromRole="TeacherMajor" ToRole="UserProfile" />
+        </EntityType>
+        <EntityType Name="UserAccount">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="RoleId" Type="Int32" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PasswordSalt" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PasswordHashAlgorithm" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Version" Type="Int64" />
+          <Property Name="InsId" Type="Int32" Nullable="false" />
+          <Property Name="InsDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdId" Type="Int32" />
+          <Property Name="UpdDateTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="UserRole" Relationship="Self.FK__UserAccou__RoleI__3C34F16F" FromRole="UserAccount" ToRole="UserRole" />
+          <NavigationProperty Name="UserProfile" Relationship="Self.FK__UserAccount__Id__3B40CD36" FromRole="UserAccount" ToRole="UserProfile" />
+        </EntityType>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="JobPostActivities" Relationship="Self.FK__JobPostAc__Teach__44CA3770" FromRole="UserProfile" ToRole="JobPostActivity" />
+          <NavigationProperty Name="SchoolUser" Relationship="Self.FK__SchoolUse__UserA__40058253" FromRole="UserProfile" ToRole="SchoolUser" />
+          <NavigationProperty Name="TeacherMajors" Relationship="Self.FK__TeacherMa__Teach__2739D489" FromRole="UserProfile" ToRole="TeacherMajor" />
+          <NavigationProperty Name="UserAccount" Relationship="Self.FK__UserAccount__Id__3B40CD36" FromRole="UserProfile" ToRole="UserAccount" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Version" Type="Int64" />
+          <Property Name="InsId" Type="Int32" Nullable="false" />
+          <Property Name="InsDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdId" Type="Int32" />
+          <Property Name="UpdDateTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="UserAccounts" Relationship="Self.FK__UserAccou__RoleI__3C34F16F" FromRole="UserRole" ToRole="UserAccount" />
+        </EntityType>
+        <Association Name="FK__District__CityId__1AD3FDA4">
+          <End Role="City" Type="Self.City" Multiplicity="0..1" />
+          <End Role="District" Type="Self.District" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="District">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobPost__Locatio__31B762FC">
+          <End Role="Location" Type="Self.Location" Multiplicity="0..1" />
+          <End Role="JobPost" Type="Self.JobPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="JobPost">
+              <PropertyRef Name="LocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobPost__SchoolI__30C33EC3">
+          <End Role="School" Type="Self.School" Multiplicity="0..1" />
+          <End Role="JobPost" Type="Self.JobPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="School">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="JobPost">
+              <PropertyRef Name="SchoolId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobPostAc__JobPo__45BE5BA9">
+          <End Role="JobPost" Type="Self.JobPost" Multiplicity="1" />
+          <End Role="JobPostActivity" Type="Self.JobPostActivity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JobPost">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="JobPostActivity">
+              <PropertyRef Name="JobPostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobPostSk__JobPo__3587F3E0">
+          <End Role="JobPost" Type="Self.JobPost" Multiplicity="1" />
+          <End Role="JobPostSkill" Type="Self.JobPostSkill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JobPost">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="JobPostSkill">
+              <PropertyRef Name="JobPostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobPostAc__Reque__46B27FE2">
+          <End Role="SchoolUser" Type="Self.SchoolUser" Multiplicity="0..1" />
+          <End Role="JobPostActivity" Type="Self.JobPostActivity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SchoolUser">
+              <PropertyRef Name="UserAccountId" />
+            </Principal>
+            <Dependent Role="JobPostActivity">
+              <PropertyRef Name="RequesterId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobPostAc__Teach__44CA3770">
+          <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="1" />
+          <End Role="JobPostActivity" Type="Self.JobPostActivity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="JobPostActivity">
+              <PropertyRef Name="TeacherId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__JobPostSk__Skill__367C1819">
+          <End Role="Skill" Type="Self.Skill" Multiplicity="1" />
+          <End Role="JobPostSkill" Type="Self.JobPostSkill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Skill">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="JobPostSkill">
+              <PropertyRef Name="SkillId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MajorSkil__Major__2BFE89A6">
+          <End Role="Major" Type="Self.Major" Multiplicity="1" />
+          <End Role="MajorSkill" Type="Self.MajorSkill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Major">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MajorSkill">
+              <PropertyRef Name="MajorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TeacherMa__Major__282DF8C2">
+          <End Role="Major" Type="Self.Major" Multiplicity="1" />
+          <End Role="TeacherMajor" Type="Self.TeacherMajor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Major">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TeacherMajor">
+              <PropertyRef Name="MajorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MajorSkil__Skill__2CF2ADDF">
+          <End Role="Skill" Type="Self.Skill" Multiplicity="1" />
+          <End Role="MajorSkill" Type="Self.MajorSkill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Skill">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MajorSkill">
+              <PropertyRef Name="SkillId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SchoolUse__Schoo__40F9A68C">
+          <End Role="School" Type="Self.School" Multiplicity="0..1" />
+          <End Role="SchoolUser" Type="Self.SchoolUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="School">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SchoolUser">
+              <PropertyRef Name="SchoolId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SchoolUse__UserA__40058253">
+          <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="1" />
+          <End Role="SchoolUser" Type="Self.SchoolUser" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SchoolUser">
+              <PropertyRef Name="UserAccountId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TeacherMa__Teach__2739D489">
+          <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="1" />
+          <End Role="TeacherMajor" Type="Self.TeacherMajor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TeacherMajor">
+              <PropertyRef Name="TeacherId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserAccou__RoleI__3C34F16F">
+          <End Role="UserRole" Type="Self.UserRole" Multiplicity="0..1" />
+          <End Role="UserAccount" Type="Self.UserAccount" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRole">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserAccount">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserAccount__Id__3B40CD36">
+          <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="1" />
+          <End Role="UserAccount" Type="Self.UserAccount" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserAccount">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Database" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cities" EntityType="Self.City" />
+          <EntitySet Name="Districts" EntityType="Self.District" />
+          <EntitySet Name="JobPosts" EntityType="Self.JobPost" />
+          <EntitySet Name="JobPostActivities" EntityType="Self.JobPostActivity" />
+          <EntitySet Name="JobPostSkills" EntityType="Self.JobPostSkill" />
+          <EntitySet Name="Locations" EntityType="Self.Location" />
+          <EntitySet Name="Majors" EntityType="Self.Major" />
+          <EntitySet Name="MajorSkills" EntityType="Self.MajorSkill" />
+          <EntitySet Name="Schools" EntityType="Self.School" />
+          <EntitySet Name="SchoolUsers" EntityType="Self.SchoolUser" />
+          <EntitySet Name="Skills" EntityType="Self.Skill" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="TeacherMajors" EntityType="Self.TeacherMajor" />
+          <EntitySet Name="UserAccounts" EntityType="Self.UserAccount" />
+          <EntitySet Name="UserProfiles" EntityType="Self.UserProfile" />
+          <EntitySet Name="UserRoles" EntityType="Self.UserRole" />
+          <AssociationSet Name="FK__District__CityId__1AD3FDA4" Association="Self.FK__District__CityId__1AD3FDA4">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="District" EntitySet="Districts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobPost__Locatio__31B762FC" Association="Self.FK__JobPost__Locatio__31B762FC">
+            <End Role="Location" EntitySet="Locations" />
+            <End Role="JobPost" EntitySet="JobPosts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobPost__SchoolI__30C33EC3" Association="Self.FK__JobPost__SchoolI__30C33EC3">
+            <End Role="School" EntitySet="Schools" />
+            <End Role="JobPost" EntitySet="JobPosts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobPostAc__JobPo__45BE5BA9" Association="Self.FK__JobPostAc__JobPo__45BE5BA9">
+            <End Role="JobPost" EntitySet="JobPosts" />
+            <End Role="JobPostActivity" EntitySet="JobPostActivities" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobPostSk__JobPo__3587F3E0" Association="Self.FK__JobPostSk__JobPo__3587F3E0">
+            <End Role="JobPost" EntitySet="JobPosts" />
+            <End Role="JobPostSkill" EntitySet="JobPostSkills" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobPostAc__Reque__46B27FE2" Association="Self.FK__JobPostAc__Reque__46B27FE2">
+            <End Role="SchoolUser" EntitySet="SchoolUsers" />
+            <End Role="JobPostActivity" EntitySet="JobPostActivities" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobPostAc__Teach__44CA3770" Association="Self.FK__JobPostAc__Teach__44CA3770">
+            <End Role="UserProfile" EntitySet="UserProfiles" />
+            <End Role="JobPostActivity" EntitySet="JobPostActivities" />
+          </AssociationSet>
+          <AssociationSet Name="FK__JobPostSk__Skill__367C1819" Association="Self.FK__JobPostSk__Skill__367C1819">
+            <End Role="Skill" EntitySet="Skills" />
+            <End Role="JobPostSkill" EntitySet="JobPostSkills" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MajorSkil__Major__2BFE89A6" Association="Self.FK__MajorSkil__Major__2BFE89A6">
+            <End Role="Major" EntitySet="Majors" />
+            <End Role="MajorSkill" EntitySet="MajorSkills" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TeacherMa__Major__282DF8C2" Association="Self.FK__TeacherMa__Major__282DF8C2">
+            <End Role="Major" EntitySet="Majors" />
+            <End Role="TeacherMajor" EntitySet="TeacherMajors" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MajorSkil__Skill__2CF2ADDF" Association="Self.FK__MajorSkil__Skill__2CF2ADDF">
+            <End Role="Skill" EntitySet="Skills" />
+            <End Role="MajorSkill" EntitySet="MajorSkills" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SchoolUse__Schoo__40F9A68C" Association="Self.FK__SchoolUse__Schoo__40F9A68C">
+            <End Role="School" EntitySet="Schools" />
+            <End Role="SchoolUser" EntitySet="SchoolUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SchoolUse__UserA__40058253" Association="Self.FK__SchoolUse__UserA__40058253">
+            <End Role="UserProfile" EntitySet="UserProfiles" />
+            <End Role="SchoolUser" EntitySet="SchoolUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TeacherMa__Teach__2739D489" Association="Self.FK__TeacherMa__Teach__2739D489">
+            <End Role="UserProfile" EntitySet="UserProfiles" />
+            <End Role="TeacherMajor" EntitySet="TeacherMajors" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserAccou__RoleI__3C34F16F" Association="Self.FK__UserAccou__RoleI__3C34F16F">
+            <End Role="UserRole" EntitySet="UserRoles" />
+            <End Role="UserAccount" EntitySet="UserAccounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserAccount__Id__3B40CD36" Association="Self.FK__UserAccount__Id__3B40CD36">
+            <End Role="UserProfile" EntitySet="UserProfiles" />
+            <End Role="UserAccount" EntitySet="UserAccounts" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelsStoreContainer" CdmEntityContainer="Database">
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="Models.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="InsId" ColumnName="InsId" />
+                <ScalarProperty Name="InsDateTime" ColumnName="InsDateTime" />
+                <ScalarProperty Name="UpdId" ColumnName="UpdId" />
+                <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Districts">
+            <EntityTypeMapping TypeName="Models.District">
+              <MappingFragment StoreEntitySet="District">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="InsId" ColumnName="InsId" />
+                <ScalarProperty Name="InsDateTime" ColumnName="InsDateTime" />
+                <ScalarProperty Name="UpdId" ColumnName="UpdId" />
+                <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JobPosts">
+            <EntityTypeMapping TypeName="Models.JobPost">
+              <MappingFragment StoreEntitySet="JobPost">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
+                <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="InsId" ColumnName="InsId" />
+                <ScalarProperty Name="InsDateTime" ColumnName="InsDateTime" />
+                <ScalarProperty Name="UpdId" ColumnName="UpdId" />
+                <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JobPostActivities">
+            <EntityTypeMapping TypeName="Models.JobPostActivity">
+              <MappingFragment StoreEntitySet="JobPostActivity">
+                <ScalarProperty Name="TeacherId" ColumnName="TeacherId" />
+                <ScalarProperty Name="JobPostId" ColumnName="JobPostId" />
+                <ScalarProperty Name="RequesterId" ColumnName="RequesterId" />
+                <ScalarProperty Name="ActivityTime" ColumnName="ActivityTime" />
+                <ScalarProperty Name="ConfirmFlg" ColumnName="ConfirmFlg" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="InsId" ColumnName="InsId" />
+                <ScalarProperty Name="InsDateTime" ColumnName="InsDateTime" />
+                <ScalarProperty Name="UpdId" ColumnName="UpdId" />
+                <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JobPostSkills">
+            <EntityTypeMapping TypeName="Models.JobPostSkill">
+              <MappingFragment StoreEntitySet="JobPostSkill">
+                <ScalarProperty Name="JobPostId" ColumnName="JobPostId" />
+                <ScalarProperty Name="SkillId" ColumnName="SkillId" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="InsId" ColumnName="InsId" />
+                <ScalarProperty Name="InsDateTime" ColumnName="InsDateTime" />
+                <ScalarProperty Name="UpdId" ColumnName="UpdId" />
+                <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Locations">
+            <EntityTypeMapping TypeName="Models.Location">
+              <MappingFragment StoreEntitySet="Location">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="InsId" ColumnName="InsId" />
+                <ScalarProperty Name="InsDateTime" ColumnName="InsDateTime" />
+                <ScalarProperty Name="UpdId" ColumnName="UpdId" />
+                <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Majors">
+            <EntityTypeMapping TypeName="Models.Major">
+              <MappingFragment StoreEntitySet="Major">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="InsId" ColumnName="InsId" />
+                <ScalarProperty Name="InsDateTime" ColumnName="InsDateTime" />
+                <ScalarProperty Name="UpdId" ColumnName="UpdId" />
+                <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MajorSkills">
+            <EntityTypeMapping TypeName="Models.MajorSkill">
+              <MappingFragment StoreEntitySet="MajorSkill">
+                <ScalarProperty Name="MajorId" ColumnName="MajorId" />
+                <ScalarProperty Name="SkillId" ColumnName="SkillId" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="InsId" ColumnName="InsId" />
+                <ScalarProperty Name="InsDateTime" ColumnName="InsDateTime" />
+                <ScalarProperty Name="UpdId" ColumnName="UpdId" />
+                <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Schools">
+            <EntityTypeMapping TypeName="Models.School">
+              <MappingFragment StoreEntitySet="School">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="InsId" ColumnName="InsId" />
+                <ScalarProperty Name="InsDateTime" ColumnName="InsDateTime" />
+                <ScalarProperty Name="UpdId" ColumnName="UpdId" />
+                <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SchoolUsers">
+            <EntityTypeMapping TypeName="Models.SchoolUser">
+              <MappingFragment StoreEntitySet="SchoolUser">
+                <ScalarProperty Name="UserAccountId" ColumnName="UserAccountId" />
+                <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="InsId" ColumnName="InsId" />
+                <ScalarProperty Name="InsDateTime" ColumnName="InsDateTime" />
+                <ScalarProperty Name="UpdId" ColumnName="UpdId" />
+                <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Skills">
+            <EntityTypeMapping TypeName="Models.Skill">
+              <MappingFragment StoreEntitySet="Skill">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="InsId" ColumnName="InsId" />
+                <ScalarProperty Name="InsDateTime" ColumnName="InsDateTime" />
+                <ScalarProperty Name="UpdId" ColumnName="UpdId" />
+                <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Models.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TeacherMajors">
+            <EntityTypeMapping TypeName="Models.TeacherMajor">
+              <MappingFragment StoreEntitySet="TeacherMajor">
+                <ScalarProperty Name="TeacherId" ColumnName="TeacherId" />
+                <ScalarProperty Name="MajorId" ColumnName="MajorId" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="InsId" ColumnName="InsId" />
+                <ScalarProperty Name="InsDateTime" ColumnName="InsDateTime" />
+                <ScalarProperty Name="UpdId" ColumnName="UpdId" />
+                <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserAccounts">
+            <EntityTypeMapping TypeName="Models.UserAccount">
+              <MappingFragment StoreEntitySet="UserAccount">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+                <ScalarProperty Name="PasswordHashAlgorithm" ColumnName="PasswordHashAlgorithm" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="InsId" ColumnName="InsId" />
+                <ScalarProperty Name="InsDateTime" ColumnName="InsDateTime" />
+                <ScalarProperty Name="UpdId" ColumnName="UpdId" />
+                <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserProfiles">
+            <EntityTypeMapping TypeName="Models.UserProfile">
+              <MappingFragment StoreEntitySet="UserProfile">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserRoles">
+            <EntityTypeMapping TypeName="Models.UserRole">
+              <MappingFragment StoreEntitySet="UserRole">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="InsId" ColumnName="InsId" />
+                <ScalarProperty Name="InsDateTime" ColumnName="InsDateTime" />
+                <ScalarProperty Name="UpdId" ColumnName="UpdId" />
+                <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

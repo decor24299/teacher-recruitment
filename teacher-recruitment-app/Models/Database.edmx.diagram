@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3ab4c27b930e4e82be53505f67ce4085" Name="Diagram1">
+        <EntityTypeShape EntityType="Models.City" Width="1.5" PointX="2.75" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Models.District" Width="1.5" PointX="5" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Models.JobPost" Width="1.5" PointX="0.75" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Models.JobPostActivity" Width="1.5" PointX="3" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Models.JobPostSkill" Width="1.5" PointX="11" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Models.Location" Width="1.5" PointX="1.5" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Models.Major" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Models.MajorSkill" Width="1.5" PointX="11" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Models.School" Width="1.5" PointX="1.5" PointY="23.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Models.SchoolUser" Width="1.5" PointX="6" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Models.Skill" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Models.sysdiagram" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Models.TeacherMajor" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Models.UserAccount" Width="1.5" PointX="6" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Models.UserProfile" Width="1.5" PointX="0.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Models.UserRole" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="Models.FK__District__CityId__1AD3FDA4" ManuallyRouted="false" />
+        <AssociationConnector Association="Models.FK__JobPost__Locatio__31B762FC" ManuallyRouted="false" />
+        <AssociationConnector Association="Models.FK__JobPost__SchoolI__30C33EC3" ManuallyRouted="false" />
+        <AssociationConnector Association="Models.FK__JobPostAc__JobPo__45BE5BA9" ManuallyRouted="false" />
+        <AssociationConnector Association="Models.FK__JobPostSk__JobPo__3587F3E0" ManuallyRouted="false" />
+        <AssociationConnector Association="Models.FK__JobPostAc__Reque__46B27FE2" ManuallyRouted="false" />
+        <AssociationConnector Association="Models.FK__JobPostAc__Teach__44CA3770" ManuallyRouted="false" />
+        <AssociationConnector Association="Models.FK__JobPostSk__Skill__367C1819" ManuallyRouted="false" />
+        <AssociationConnector Association="Models.FK__MajorSkil__Major__2BFE89A6" ManuallyRouted="false" />
+        <AssociationConnector Association="Models.FK__TeacherMa__Major__282DF8C2" ManuallyRouted="false" />
+        <AssociationConnector Association="Models.FK__MajorSkil__Skill__2CF2ADDF" ManuallyRouted="false" />
+        <AssociationConnector Association="Models.FK__SchoolUse__Schoo__40F9A68C" ManuallyRouted="false" />
+        <AssociationConnector Association="Models.FK__SchoolUse__UserA__40058253" ManuallyRouted="false" />
+        <AssociationConnector Association="Models.FK__TeacherMa__Teach__2739D489" ManuallyRouted="false" />
+        <AssociationConnector Association="Models.FK__UserAccou__RoleI__3C34F16F" ManuallyRouted="false" />
+        <AssociationConnector Association="Models.FK__UserAccount__Id__3B40CD36" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

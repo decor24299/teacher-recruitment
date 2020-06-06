@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelsStoreContainer" CdmEntityContainer="DataContext">
+    <EntitySetMapping Name="Cities">
+      <EntityTypeMapping TypeName="Models.City">
+        <MappingFragment StoreEntitySet="City">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="InsId" ColumnName="InsId" />
+          <ScalarProperty Name="InsDateTime" ColumnName="InsDateTime" />
+          <ScalarProperty Name="UpdId" ColumnName="UpdId" />
+          <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Districts">
+      <EntityTypeMapping TypeName="Models.District">
+        <MappingFragment StoreEntitySet="District">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="InsId" ColumnName="InsId" />
+          <ScalarProperty Name="InsDateTime" ColumnName="InsDateTime" />
+          <ScalarProperty Name="UpdId" ColumnName="UpdId" />
+          <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JobPosts">
+      <EntityTypeMapping TypeName="Models.JobPost">
+        <MappingFragment StoreEntitySet="JobPost">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
+          <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="InsId" ColumnName="InsId" />
+          <ScalarProperty Name="InsDateTime" ColumnName="InsDateTime" />
+          <ScalarProperty Name="UpdId" ColumnName="UpdId" />
+          <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JobPostActivities">
+      <EntityTypeMapping TypeName="Models.JobPostActivity">
+        <MappingFragment StoreEntitySet="JobPostActivity">
+          <ScalarProperty Name="TeacherId" ColumnName="TeacherId" />
+          <ScalarProperty Name="JobPostId" ColumnName="JobPostId" />
+          <ScalarProperty Name="RequesterId" ColumnName="RequesterId" />
+          <ScalarProperty Name="ActivityTime" ColumnName="ActivityTime" />
+          <ScalarProperty Name="ConfirmFlg" ColumnName="ConfirmFlg" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="InsId" ColumnName="InsId" />
+          <ScalarProperty Name="InsDateTime" ColumnName="InsDateTime" />
+          <ScalarProperty Name="UpdId" ColumnName="UpdId" />
+          <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JobPostSkills">
+      <EntityTypeMapping TypeName="Models.JobPostSkill">
+        <MappingFragment StoreEntitySet="JobPostSkill">
+          <ScalarProperty Name="JobPostId" ColumnName="JobPostId" />
+          <ScalarProperty Name="SkillId" ColumnName="SkillId" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="InsId" ColumnName="InsId" />
+          <ScalarProperty Name="InsDateTime" ColumnName="InsDateTime" />
+          <ScalarProperty Name="UpdId" ColumnName="UpdId" />
+          <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Locations">
+      <EntityTypeMapping TypeName="Models.Location">
+        <MappingFragment StoreEntitySet="Location">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="InsId" ColumnName="InsId" />
+          <ScalarProperty Name="InsDateTime" ColumnName="InsDateTime" />
+          <ScalarProperty Name="UpdId" ColumnName="UpdId" />
+          <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Majors">
+      <EntityTypeMapping TypeName="Models.Major">
+        <MappingFragment StoreEntitySet="Major">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="InsId" ColumnName="InsId" />
+          <ScalarProperty Name="InsDateTime" ColumnName="InsDateTime" />
+          <ScalarProperty Name="UpdId" ColumnName="UpdId" />
+          <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MajorSkills">
+      <EntityTypeMapping TypeName="Models.MajorSkill">
+        <MappingFragment StoreEntitySet="MajorSkill">
+          <ScalarProperty Name="MajorId" ColumnName="MajorId" />
+          <ScalarProperty Name="SkillId" ColumnName="SkillId" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="InsId" ColumnName="InsId" />
+          <ScalarProperty Name="InsDateTime" ColumnName="InsDateTime" />
+          <ScalarProperty Name="UpdId" ColumnName="UpdId" />
+          <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Schools">
+      <EntityTypeMapping TypeName="Models.School">
+        <MappingFragment StoreEntitySet="School">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="InsId" ColumnName="InsId" />
+          <ScalarProperty Name="InsDateTime" ColumnName="InsDateTime" />
+          <ScalarProperty Name="UpdId" ColumnName="UpdId" />
+          <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SchoolUsers">
+      <EntityTypeMapping TypeName="Models.SchoolUser">
+        <MappingFragment StoreEntitySet="SchoolUser">
+          <ScalarProperty Name="UserAccountId" ColumnName="UserAccountId" />
+          <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="InsId" ColumnName="InsId" />
+          <ScalarProperty Name="InsDateTime" ColumnName="InsDateTime" />
+          <ScalarProperty Name="UpdId" ColumnName="UpdId" />
+          <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Skills">
+      <EntityTypeMapping TypeName="Models.Skill">
+        <MappingFragment StoreEntitySet="Skill">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="InsId" ColumnName="InsId" />
+          <ScalarProperty Name="InsDateTime" ColumnName="InsDateTime" />
+          <ScalarProperty Name="UpdId" ColumnName="UpdId" />
+          <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="Models.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TeacherMajors">
+      <EntityTypeMapping TypeName="Models.TeacherMajor">
+        <MappingFragment StoreEntitySet="TeacherMajor">
+          <ScalarProperty Name="TeacherId" ColumnName="TeacherId" />
+          <ScalarProperty Name="MajorId" ColumnName="MajorId" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="InsId" ColumnName="InsId" />
+          <ScalarProperty Name="InsDateTime" ColumnName="InsDateTime" />
+          <ScalarProperty Name="UpdId" ColumnName="UpdId" />
+          <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserAccounts">
+      <EntityTypeMapping TypeName="Models.UserAccount">
+        <MappingFragment StoreEntitySet="UserAccount">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+          <ScalarProperty Name="PasswordHashAlgorithm" ColumnName="PasswordHashAlgorithm" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="InsId" ColumnName="InsId" />
+          <ScalarProperty Name="InsDateTime" ColumnName="InsDateTime" />
+          <ScalarProperty Name="UpdId" ColumnName="UpdId" />
+          <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserProfiles">
+      <EntityTypeMapping TypeName="Models.UserProfile">
+        <MappingFragment StoreEntitySet="UserProfile">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserRoles">
+      <EntityTypeMapping TypeName="Models.UserRole">
+        <MappingFragment StoreEntitySet="UserRole">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="InsId" ColumnName="InsId" />
+          <ScalarProperty Name="InsDateTime" ColumnName="InsDateTime" />
+          <ScalarProperty Name="UpdId" ColumnName="UpdId" />
+          <ScalarProperty Name="UpdDateTime" ColumnName="UpdDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
