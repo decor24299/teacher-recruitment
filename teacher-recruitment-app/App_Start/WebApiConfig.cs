@@ -1,4 +1,5 @@
-﻿using System.Net.Http.Headers;
+﻿using Swashbuckle.Application;
+using System.Net.Http.Headers;
 using System.Web.Http;
 
 namespace teacher_recruitment_app
@@ -17,6 +18,15 @@ namespace teacher_recruitment_app
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
+            );
+
+            // Redirect root to Swagger UI
+            config.Routes.MapHttpRoute(
+			    name: "Swagger UI",
+			    routeTemplate: "",
+			    defaults: null,
+			    constraints: null,
+			    handler: new RedirectHandler(SwaggerDocsConfig.DefaultRootUrlResolver, "swagger")
             );
         }
     }
