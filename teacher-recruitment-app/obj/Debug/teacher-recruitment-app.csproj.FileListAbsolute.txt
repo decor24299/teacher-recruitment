@@ -87,3 +87,5 @@ C:\Users\Decor\Desktop\teacher-recruitment-app\teacher-recruitment-app\bin\Syste
 C:\Users\Decor\Desktop\teacher-recruitment-app\teacher-recruitment-app\bin\System.Web.Razor.xml
 C:\Users\Decor\Desktop\teacher-recruitment-app\teacher-recruitment-app\bin\Swashbuckle.Core.dll
 C:\Users\Decor\Desktop\teacher-recruitment-app\teacher-recruitment-app\bin\WebActivatorEx.dll
+C:\Users\Decor\Desktop\teacher-recruitment-app\teacher-recruitment-app\bin\EntityFramework.dll
+C:\Users\Decor\Desktop\teacher-recruitment-app\teacher-recruitment-app\bin\EntityFramework.SqlServer.dll
